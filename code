@@ -1,0 +1,34 @@
+import math
+listSize = raw_input()
+
+list1 = map(int, raw_input().strip(). split())
+
+for j in range(1,len(list1)):
+    key = list1[j]
+    i = j - 1
+    while i > -1 and list1[i] > key:
+        list1[i + 1] = list1[i]
+        i -= 1
+    list1[i + 1] = key
+
+if len(list1) % 2 != 0:
+    firstQuartile = (list1[int((math.floor(len(list1) / 2)) / 2)] + list1[int(((math.floor(len(list1) / 2)) / 2))] - 1) / 2
+    secondQuartile = list1[int(math.floor(len(list1) / 2))]
+    thirdQuartile = (list1[int(math.floor(len(list1) * (0.75)))] + list1[int(math.floor(len(list1) * (0.75)))  + 1]) / 2
+
+    print(firstQuartile)
+    print(secondQuartile)
+    print(thirdQuartile)
+     
+else:
+    
+    secondQuartile = (list1[(len(list1)/2)] + list1[(len(list1)/2) - 1]) / 2
+    if (len(list1) / 2) % 2 != 0:
+        firstQuartile = list1[int(math.floor((len(list1)/2)/2))]
+        thirdQuartile = list1[int(math.floor(len(list1) * (0.75)))]
+    else:
+        firstQuartile = (list1[int(math.floor((len(list1)/2)/2))] + list1[int(math.floor((len(list1)/2)/2)) - 1]) / 2      
+        thirdQuartile = (list1[int(math.floor((len(list1))* (0.75)))] + list1[int(math.floor((len(list1)) * (0.75))) - 1]) / 2
+    print(firstQuartile)
+    print(secondQuartile)
+    print(thirdQuartile)
